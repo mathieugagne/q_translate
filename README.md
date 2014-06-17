@@ -23,26 +23,29 @@ Extends String with a 'translate' method. Returned value is the according transl
 
 ### Uses locale
 
-    $ WpPost.post_title
+    $ post = WpPost.first
+    $ post.post_title
     $ => "<!--:en-->And this is how the Universe ended.<!--:--><!--:fr-->Et c'est ainsi que l'univers connu cessa d'exister.<!--:-->"
     $ I18n.locale = :en
-    $ WpPost.post_title.translate
+    $ post.post_title.translate
     $ => "And this is how the Universe ended."
 
 ### Uses default locale if it has not been translated yet.
 
-    $ WpPost.post_title
+    $ post = WpPost.first
+    $ post.post_title
     $ => "<!--:en-->And this is how the Universe ended.<!--:-->"
     $ I18n.locale = :fr
-    $ WpPost.post_title.translate
+    $ WpPost.first.post_title.translate
     $ => "And this is how the Universe ended."
 
 ### Spits the same text out if no translation tags are applied
 
-    $ WpPost.post_title
+    $ post = WpPost.first
+    $ post.post_title
     $ => "And this is how the Universe ended."
     $ I18n.locale = :fr
-    $ WpPost.post_title.translate
+    $ post.post_title.translate
     $ => "And this is how the Universe ended."
 
 
